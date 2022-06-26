@@ -8,7 +8,7 @@ from pathlib import Path
 from rules import MessageRule, MessageRules
 import yaml
 import re
-from lightbulb import BotApp, SlashContext, PrefixContext
+from lightbulb import BotApp, SlashContext, MessageContext
 import os
 import ipaddress
 import dotenv
@@ -52,9 +52,9 @@ def sanitize_addr(maybe_ip: str):
 @bot.command()
 @lightbulb.option('host', 'ip hosta')
 @lightbulb.command('ping', 'wysyła pong')
-@lightbulb.implements(lightbulb.SlashCommand)
-async def ping(ctx: PrefixContext):
-    valid_ip = sanitize_addr(ctx.options['host'])
+@lightbulb.implements(lightbulb.SlashCommand, lightbulb.MessageCommand)
+async def ping(ctx: SlashContext | MessageContext):
+    valid_ip = sanitize_addr(ctx.options['host'] or ctx.options.target.content)
     if valid_ip is None:
         await ctx.respond('To nie jest poprawny adres ip lub nazwa hosta!')
         return

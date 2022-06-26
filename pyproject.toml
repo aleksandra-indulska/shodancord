@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "shodancord"
+version = "0.1.0"
+description = ""
+authors = ["Aleksandra Indulska <aleksandra.indulska@gmail.com>", "Krystian Postek <krystian@postek.eu>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.11"
+hikari = "^2.0.0-alpha.108"
+pydantic = "^1.9.1"
+PyYAML = "^6.0"
+hikari-lightbulb = "^2.2.2"
+httpx = "^0.23.0"
+python-dotenv = "^0.20.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

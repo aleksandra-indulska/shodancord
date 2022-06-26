@@ -1,0 +1,1 @@
+{"title": "MessageRules", "type": "array", "items": {"$ref": "#/definitions/MessageRule"}, "definitions": {"MessageRule": {"title": "MessageRule", "type": "object", "properties": {"regex_pattern": {"title": "Regex Pattern", "type": "string"}, "response": {"title": "Response", "type": "string"}}, "required": ["regex_pattern", "response"]}}}
